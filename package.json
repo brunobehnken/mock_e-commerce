@@ -1,17 +1,13 @@
 {
   "name": "mock_e-commerce",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "repository": "https://github.com/brunobehnken/mock_e-commerce.git",
+  "author": "Bruno Behnken <brunobehnken@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "jest": "^29.5.0"
+    "@babel/preset-env": "^7.21.4",
+    "jest": "^29.5.0",
+    "jest-babel": "^1.0.1"
   }
 }
