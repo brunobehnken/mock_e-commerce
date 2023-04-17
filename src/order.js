@@ -1,4 +1,4 @@
-import {validate} from "./validateCpf";
+import {validateCpf} from "./validateCpf";
 import {coupons} from "./coupons";
 
 export default class Order {
@@ -12,7 +12,7 @@ export default class Order {
     }
 
     setCpf(cpf) {
-        if (validate(cpf)) {
+        if (validateCpf(cpf)) {
             this.cpf = cpf
         } else {
             throw new Error('Invalid CPF')
