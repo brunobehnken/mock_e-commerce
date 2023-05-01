@@ -1,5 +1,5 @@
-import {validateCpf} from "./validateCpf";
-import {coupons} from "./coupons";
+import validateCpf from "./validateCpf.js";
+import {coupons} from "./coupons.js";
 import {products} from "./product.js";
 
 export default class Order {
