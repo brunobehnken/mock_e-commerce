@@ -1,5 +1,6 @@
+import expect from "expect";
 import Order from "../src/order";
-import products from "../src/product";
+import {products} from "../src/product";
 
 test('Create new order', () => {
     const order = new Order()
@@ -23,37 +24,41 @@ test('Do not create an order with invalid CPF', () => {
 });
 
 test('Create an order with 3 products and assert total value', () => {
-    // const product1 = new Product(1, "p1", "p1", 1, 1);
-    // const product1Quantity = 1;
-    // const product2 = new Product(2, "p2", "p2", 2, 2);
-    // const product2Quantity = 1;
-    // const product3 = new Product(3, "p3", "p3", 3, 3);
-    // const product3Quantity = 3;
-    // const totalPrice = product1.price * product1Quantity + product2.price * product2Quantity + product3.price * product3Quantity
-    const totalPrice = 1 * 1 + 2 * 1 + 3 * 3;
+    let totalPrice = 0;
+    const productsToAdd = {
+        1: 1,
+        2: 1,
+        3: 3
+    }
+    for (const idProduct in productsToAdd) {
+        totalPrice += products[idProduct].price * productsToAdd[idProduct];
+    }
 
     const order = new Order();
-    order.addProduct(1, 1);
-    order.addProduct(2, 1);
-    order.addProduct(3, 3);
+    for (const idProduct in productsToAdd) {
+        order.addProduct(idProduct, productsToAdd[idProduct])
+    }
 
     expect(order.totalPrice).toBe(totalPrice);
 });
 
 test('Create an order with 3 products, associate discount coupon and assert total value', () => {
-    // const product1 = new Product(1, "p1", "p1", 1, 1);
-    // const product1Quantity = 1;
-    // const product2 = new Product(2, "p2", "p2", 2, 2);
-    // const product2Quantity = 1;
-    // const product3 = new Product(3, "p3", "p3", 3, 3);
-    // const product3Quantity = 3;
+    let totalPrice = 0;
+    const productsToAdd = {
+        1: 1,
+        2: 1,
+        3: 3
+    }
+    for (const idProduct in productsToAdd) {
+        totalPrice += products[idProduct].price * productsToAdd[idProduct];
+    }
     const coupon20PercentOff = "20PERCENTOFF";
-    const totalPrice = (1 * 1 + 2 * 1 + 3 * 3) * 0.8
+    totalPrice *= 0.8
 
     const order = new Order();
-    order.addProduct(1, 1);
-    order.addProduct(2, 1);
-    order.addProduct(3, 3);
+    for (const idProduct in productsToAdd) {
+        order.addProduct(idProduct, productsToAdd[idProduct])
+    }
     order.addCoupon(coupon20PercentOff)
 
     expect(order.coupon).toBe(coupon20PercentOff);
