@@ -15,5 +15,8 @@ app.post('/checkout', async (req, res) => {
     for (const product of productsToAdd) {
         order.addProduct(product.idProduct, product.quantity);
     }
+    if (req.body.coupon) {
+        order.addCoupon(req.body.coupon);
+    }
     return res.json({ total: order.totalPrice });
 });
