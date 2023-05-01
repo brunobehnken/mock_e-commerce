@@ -1,5 +1,6 @@
 import {validateCpf} from "./validateCpf";
 import {coupons} from "./coupons";
+import {products} from "./product.js";
 
 export default class Order {
     constructor() {
@@ -19,9 +20,9 @@ export default class Order {
         }
     }
 
-    addProduct(product, quantity) {
-        this.products[product.id] = {product, quantity}
-        const productPrice = product.price * quantity
+    addProduct(idProduct, quantity) {
+        this.products[idProduct] = quantity
+        const productPrice = products[idProduct].price * quantity
         this.subTotalPrice += productPrice
         this.totalPrice = this.subTotalPrice * this.couponMultiplier
     }

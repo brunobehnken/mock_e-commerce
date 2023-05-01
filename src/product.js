@@ -1,9 +1,20 @@
-export default class Product {
-    constructor(id, name, description, price, stock) {
-        this.id = id
-        this.name = name
-        this.description = description
-        this.price = price
-        this.stock = stock
-    }
+export const products = {
+    1: {
+        name: 'p1',
+        description: 'p1',
+        price: 1,
+        stock: 1
+    },
+    2: {
+        name: 'p2',
+        description: 'p2',
+        price: 2,
+        stock: 2
+    },
+    3: {
+        name: 'p3',
+        description: 'p3',
+        price: 3,
+        stock: 3
+    },
 }
