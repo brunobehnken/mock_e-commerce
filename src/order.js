@@ -24,7 +24,7 @@ export default class Order {
         this.products[idProduct] = quantity
         const productPrice = products[idProduct].price * quantity
         this.subTotalPrice += productPrice
-        this.totalPrice = this.subTotalPrice * this.couponMultiplier
+        this.totalPrice = Math.floor(this.subTotalPrice * this.couponMultiplier * 100) / 100;
     }
 
     addCoupon(coupon) {
@@ -34,6 +34,6 @@ export default class Order {
         this.coupon = coupon
         const discountPercentage = coupons[coupon]
         this.couponMultiplier = (100 - discountPercentage) / 100
-        this.totalPrice = this.subTotalPrice * this.couponMultiplier
+        this.totalPrice = Math.floor((this.subTotalPrice * this.couponMultiplier * 100)) / 100;
     }
 }

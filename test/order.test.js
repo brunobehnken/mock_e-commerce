@@ -54,6 +54,7 @@ test('Create an order with 3 products, associate discount coupon and assert tota
     }
     const coupon20PercentOff = "20PERCENTOFF";
     totalPrice *= 0.8
+    totalPrice = Math.floor(totalPrice * 100) / 100;
 
     const order = new Order();
     for (const idProduct in productsToAdd) {
